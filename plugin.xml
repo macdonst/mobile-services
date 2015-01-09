@@ -10,7 +10,7 @@
 	    <clobbers target="ADB"/>
 	</js-module>
 	
-    <hook type="before_compile" src="sdks/Cordova/ADBMobile/Shared/beforeCompile.js" />
+    <hook type="before_build" src="sdks/Cordova/ADBMobile/Shared/beforeCompile.js" />
     
 	 <!-- ios -->
 	 <platform name="ios">

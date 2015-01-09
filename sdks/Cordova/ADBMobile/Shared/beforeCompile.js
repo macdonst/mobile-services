@@ -44,7 +44,7 @@ var fs = require('fs');
 var path = require('path');
 
 // no need to configure below
-var rootdir = process.argv[2];
+var rootdir = process.cwd();
 var platforms = fs.readdirSync('platforms');
 
 for(var i in platforms) {
