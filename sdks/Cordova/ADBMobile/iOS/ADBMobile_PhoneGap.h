@@ -21,6 +21,7 @@
 
 @interface ADBMobile_PhoneGap : CDVPlugin
 
+- (void)initPlugin:(CDVInvokedUrlCommand*)command;
 - (void)getVersion:(CDVInvokedUrlCommand*)command;
 - (void)getPrivacyStatus:(CDVInvokedUrlCommand*)command;
 - (void)setPrivacyStatus:(CDVInvokedUrlCommand*)command;

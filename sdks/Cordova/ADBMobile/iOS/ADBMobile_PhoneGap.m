@@ -23,15 +23,32 @@
 
 @implementation ADBMobile_PhoneGap
 
-- (void)getVersion:(CDVInvokedUrlCommand*)command {
-	[self.commandDelegate runInBackground:^{
-		CDVPluginResult* pluginResult = nil;
+- (void)initPlugin:(CDVInvokedUrlCommand *)command {
+    [self.commandDelegate runInBackground:^{
+        CDVPluginResult* pluginResult = nil;
+        NSString *configFileString = [command.arguments objectAtIndex:0];
+        
+        // if a privacyStatus was not passed in, return
+        if (configFileString == (id)[NSNull null]) {
+            return;
+        }
+        
+        [ADBMobile overrideConfigPath:configFileString];
+        
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Config File"];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    }];
+}
 
-		NSString *version = [ADBMobile version];
-		
-		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:version];
-		[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-	}];
+- (void)getVersion:(CDVInvokedUrlCommand*)command {
+    [self.commandDelegate runInBackground:^{
+        CDVPluginResult* pluginResult = nil;
+        
+        NSString *version = [ADBMobile version];
+        
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:version];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    }];
 }
 
 - (void)getPrivacyStatus:(CDVInvokedUrlCommand*)command; {
