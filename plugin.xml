@@ -21,7 +21,6 @@
 		 <source-file src="sdks/Cordova/ADBMobile/iOS/ADBMobile_PhoneGap.m" />
 		 <header-file src="sdks/iOS/AdobeMobileLibrary/ADBMobile.h" />
 		 <source-file src="sdks/iOS/AdobeMobileLibrary/AdobeMobileLibrary.a" framework="true" />        
-		 <resource-file src="sdks/iOS/AdobeMobileLibrary/ADBMobileConfig.json" />
 		 <framework src="libsqlite3.dylib" />
 		 <framework src="SystemConfiguration.framework" />
 	 </platform>
@@ -39,6 +38,5 @@
 		 </config-file>
 		 <source-file src="sdks/Cordova/ADBMobile/Android/ADBMobile_PhoneGap.java" target-dir="src/com/adobe/" />
 		 <source-file src="sdks/Android/AdobeMobileLibrary/adobeMobileLibrary.jar" target-dir="libs" />
-         <source-file src="sdks/Android/AdobeMobileLibrary/ADBMobileConfig.json" target-dir="assets" />
 	 </platform>
 </plugin>
