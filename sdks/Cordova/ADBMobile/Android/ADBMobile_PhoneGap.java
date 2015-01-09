@@ -1,6 +1,7 @@
 package com.adobe;
 
 import android.location.Location;
+import android.util.Log;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaWebView;
@@ -128,6 +129,7 @@ public class ADBMobile_PhoneGap extends CordovaPlugin {
     // =====================
     private void initPlugin(JSONArray args, final CallbackContext callbackContext) {
         final String configFile = args.optString(0, "ADBMobileConfig.json");
+        Log.d("Simon", "file name = " + configFile);
         cordova.getThreadPool().execute((new Runnable() {
             @Override
             public void run() {
@@ -136,6 +138,7 @@ public class ADBMobile_PhoneGap extends CordovaPlugin {
                     Config.overrideConfigStream(configInput);
                 } catch (IOException ex) {
                     // do something with the exception if needed
+                    Log.e("Simon", ex.getMessage(), ex);
                 }
                 initialized = true;
                 com.adobe.mobile.Config.collectLifecycleData(cordova.getActivity());
